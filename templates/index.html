@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Custom Story Generator</title>
+</head>
+<body>
+    <h1>Create Your Own Story</h1>
+    <form method="POST">
+        <label>Choose Genre:</label>
+        <select name="genre">
+            {% for g in genres %}
+            <option value="{{ g }}">{{ g }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <h3>Characters:</h3>
+        {% for i in range(1, 4) %}
+            <label>Name {{ i }}:</label>
+            <input type="text" name="name{{ i }}">
+            <label>Role:</label>
+            <input type="text" name="role{{ i }}"><br>
+        {% endfor %}
+        <br>
+
+        <label>Describe the Setting (e.g., a forest, a spaceship, 1800s London):</label><br>
+        <input type="text" name="setting" required><br><br>
+
+        <label>Plot Twist:</label><br>
+        <input type="text" name="twist" required><br><br>
+
+        <label>Choose Ending:</label>
+        <select name="ending">
+            {% for e in endings %}
+            <option value="{{ e }}">{{ e }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Generate Story</button>
+    </form>
+</body>
+</html>
